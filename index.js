@@ -107,9 +107,17 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(reviewArr, name, rating, feedback){
+  let newReview = {
+    name: name,
+    rating: rating,
+    feedback: feedback
+  }
+  reviewArr.push(newReview);
+  return reviewArr;
 }
+console.log(addReview(reviews, 'Me', 5, 'Was okay.'));
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
@@ -121,13 +129,16 @@ Use the getReviewByIndex function below to do the following:
   For example: getReviewByIndex(reviews,0) would return: "Daniela gave the restaurant a 5 star review, and their feedback was: Beautiful atmosphere and wonderful vegan options!"
 */
 
+function getReviewByIndex(arr, index) {
+  let name = arr[index].name;
+  let rating = arr[index].rating;
+  let feedback = arr[index].feedback;
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+  // console.log(name, rating, feedback);
+  return `${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`;
 }
+getReviewByIndex(reviews, 0);
 
-
-  
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
@@ -141,10 +152,13 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
-} 
-
+function getLastReview(arr) {
+  let name = arr[arr.length-1].name;
+  let rating = arr[arr.length-1].rating;
+  let feedback = arr[arr.length-1].feedback;
+  return `${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`;
+}
+getLastReview(reviews);
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
